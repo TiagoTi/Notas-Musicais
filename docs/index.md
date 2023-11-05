@@ -1,4 +1,6 @@
-# Welcome to MkDocs
+![logo do projeto](assets/logo.png){ width="250" .center}
+
+# Notas Musicais
 
 For full documentation visit [mkdocs.org](https://www.mkdocs.org).
 

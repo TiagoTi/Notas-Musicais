@@ -1,0 +1,8 @@
+.center {
+    display: block;
+    margin: 0 0 auto;
+}
+
+.center:hover {
+    padding: 8px;
+}
