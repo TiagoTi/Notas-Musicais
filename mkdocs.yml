@@ -1,4 +1,5 @@
 site_name: Notas Musicais
+repo_url: https://github.com/TiagoTi/Notas-Musicais.git
 theme:
   name: material
   language: pt-BR
