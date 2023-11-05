@@ -1,6 +1,7 @@
 site_name: Notas Musicais
 repo_url: https://github.com/TiagoTi/Notas-Musicais.git
 repo_name: TiagoTi/Notas-Musicais
+edit_ur: tree/main/docs
 
 theme:
   name: material
