@@ -34,3 +34,10 @@ addopts = "--doctest-modules -v"
 [tool.isort]
 profile = "black"
 line_length = 79
+
+[tool.taskipy.tasks]
+docs =  "mkdocs serve"
+lint  = "blue --check --diff . && isort --check --diff ."
+pre_test = "task lint"
+test = "pytest -s -x -vv --cov=notas_musicais"
+post_test = "coverage html"
