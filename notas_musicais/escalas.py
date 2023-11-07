@@ -16,13 +16,16 @@ ESCALAS = {
 DOZE_NOTAS = len(NOTAS)
 
 
-def escala(tonica, tonalidade):
+def escala(tonica: str, tonalidade: str) -> dict[str, list[str]]:
     """
-    Gera uma escala apartir de uma tônica e uma tonalidade
+    Gera uma escala a partir de uma tônica e uma tonalidade
 
     Parameters:
         tonica: Nota que será a tonica da escala
         tonalidade: Tonalidade da escala
+
+    Returns:
+        Um dicionário com as notas da escala e o graus
 
     escala('c', 'maior')
     {'notas': ['C', 'D', 'E', 'F', 'G', 'A', 'B'], 'graus': ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII']}
@@ -30,11 +33,12 @@ def escala(tonica, tonalidade):
     escala('a', 'maior')
     {'notas': ['A', 'B', 'C#', 'D', 'E', 'F#', 'G#'], 'graus': ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII']}
 
-    >>> escala('D', 'pentatonica')
-    {'notas': ['D', 'E', 'F#', 'A', 'B'], 'graus': ['I', 'II', 'III', 'V', 'VI']}
+    Examples:
+        >>> escala('D', 'pentatonica')
+        {'notas': ['D', 'E', 'F#', 'A', 'B'], 'graus': ['I', 'II', 'III', 'V', 'VI']}
 
-    >>> escala('C', 'pentatonica menor')
-    {'notas': ['C', 'D#', 'F', 'G', 'A#'], 'graus': ['I', 'III', 'IV', 'V', 'VII']}
+        >>> escala('C', 'pentatonica menor')
+        {'notas': ['C', 'D#', 'F', 'G', 'A#'], 'graus': ['I', 'III', 'IV', 'V', 'VII']}
     """
     intervalo_escala = ESCALAS[tonalidade]['intervalo']
     notas = list()

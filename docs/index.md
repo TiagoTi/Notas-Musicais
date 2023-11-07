@@ -1,6 +1,6 @@
-![logo do projeto](assets/logo.png){ width="250" .center}
-
 # Notas Musicais
+
+![logo do projeto](assets/logo.png){ width="250" .center}
 
 For full documentation visit [mkdocs.org](https://www.mkdocs.org).
 
