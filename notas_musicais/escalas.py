@@ -18,10 +18,16 @@ DOZE_NOTAS = len(NOTAS)
 
 def escala(tonica, tonalidade):
     """
-    escala('C', 'maior')
+    Gera uma escala apartir de uma tônica e uma tonalidade
+
+    Parameters:
+        tonica: Nota que será a tonica da escala
+        tonalidade: Tonalidade da escala
+
+    escala('c', 'maior')
     {'notas': ['C', 'D', 'E', 'F', 'G', 'A', 'B'], 'graus': ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII']}
 
-    escala('A', 'maior')
+    escala('a', 'maior')
     {'notas': ['A', 'B', 'C#', 'D', 'E', 'F#', 'G#'], 'graus': ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII']}
 
     >>> escala('D', 'pentatonica')
@@ -32,7 +38,7 @@ def escala(tonica, tonalidade):
     """
     intervalo_escala = ESCALAS[tonalidade]['intervalo']
     notas = list()
-    tonica_posicao = NOTAS.index(tonica)
+    tonica_posicao = NOTAS.index(tonica.upper())
 
     for intervalo in intervalo_escala:
         posicao_nota = (intervalo + tonica_posicao) % DOZE_NOTAS

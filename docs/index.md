@@ -17,3 +17,8 @@ For full documentation visit [mkdocs.org](https://www.mkdocs.org).
     docs/
         index.md  # The documentation homepage.
         ...       # Other markdown pages, images and other files.
+
+## Referências
+
+* [https://en.wikipedia.org/wiki/List_of_musical_scales_and_modes](https://en.wikipedia.org/wiki/List_of_musical_scales_and_modes)
+* [Iniciando o desenvolvimento das escalas, testes e documentação do nosso pacote Python #CodaComigo](https://youtu.be/zU0ECYN_C6k?si=Ujp8NzZRkgWQbWH0)
