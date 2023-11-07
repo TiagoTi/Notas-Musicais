@@ -16,18 +16,18 @@ ESCALAS = {
 DOZE_NOTAS = len(NOTAS)
 
 
-def escalas(tonica, tonalidade):
+def escala(tonica, tonalidade):
     """
-    escalas('C', 'maior')
+    escala('C', 'maior')
     {'notas': ['C', 'D', 'E', 'F', 'G', 'A', 'B'], 'graus': ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII']}
 
-    escalas('A', 'maior')
+    escala('A', 'maior')
     {'notas': ['A', 'B', 'C#', 'D', 'E', 'F#', 'G#'], 'graus': ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII']}
 
-    >>> escalas('D', 'pentatonica')
+    >>> escala('D', 'pentatonica')
     {'notas': ['D', 'E', 'F#', 'A', 'B'], 'graus': ['I', 'II', 'III', 'V', 'VI']}
 
-    >>> escalas('C', 'pentatonica menor')
+    >>> escala('C', 'pentatonica menor')
     {'notas': ['C', 'D#', 'F', 'G', 'A#'], 'graus': ['I', 'III', 'IV', 'V', 'VII']}
     """
     intervalo_escala = ESCALAS[tonalidade]['intervalo']
