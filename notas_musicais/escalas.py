@@ -1,5 +1,3 @@
-NOTAS = 'C C# D D# E F F# G G# A A# B'.split()
-GRAUS = 'I II III IV V VI VII VIII IX X XI'.split()
 ESCALAS = {
     'maior': {
         'intervalo': (0, 2, 4, 5, 7, 9, 11),
@@ -18,6 +16,9 @@ ESCALAS = {
         'skip_grau': [1, 5],
     },
 }
+GRAUS = 'I II III IV V VI VII VIII IX X XI'.split()
+NOTAS = 'C C# D D# E F F# G G# A A# B'.split()
+QNT_NOTAS = len(NOTAS)
 
 
 def escala(tonica: str, tonalidade: str) -> dict[str, list[str]]:
@@ -44,12 +45,17 @@ def escala(tonica: str, tonalidade: str) -> dict[str, list[str]]:
         >>> escala('C', 'pentatonica menor')
         {'notas': ['C', 'D#', 'F', 'G', 'A#'], 'graus': ['I', 'III', 'IV', 'V', 'VII']}
     """
+    try:
+        posicao_tonica = NOTAS.index(tonica.upper())
+    except ValueError:
+        return f'Essa nota não existe, tente uma dessas {NOTAS}'
+
     grau = 0
     graus = list()
     notas = list()
 
     for intervalo in ESCALAS[tonalidade]['intervalo']:
-        i = (intervalo + NOTAS.index(tonica.upper())) % len(NOTAS)
+        i = (posicao_tonica + intervalo) % QNT_NOTAS
         notas.append(NOTAS[i])
 
         if grau in ESCALAS[tonalidade]['skip_grau']:
