@@ -1,19 +1,23 @@
 NOTAS = 'C C# D D# E F F# G G# A A# B'.split()
-GRAUS = 'I II III IV V VI VII'.split()
+GRAUS = 'I II III IV V VI VII VIII IX X XI'.split()
 ESCALAS = {
-    'maior': {'intervalo': (0, 2, 4, 5, 7, 9, 11), 'grau': GRAUS},
-    'minor': {'intervalo': (0, 2, 3, 5, 7, 8, 10), 'grau': GRAUS},
+    'maior': {
+        'intervalo': (0, 2, 4, 5, 7, 9, 11),
+        'skip_grau': [],
+    },
+    'minor': {
+        'intervalo': (0, 2, 3, 5, 7, 8, 10),
+        'skip_grau': [],
+    },
     'pentatonica': {
         'intervalo': (0, 2, 4, 7, 9),
-        'grau': 'I II III V VI'.split(),
+        'skip_grau': [3, 6],
     },
     'pentatonica menor': {
         'intervalo': (0, 3, 5, 7, 10),
-        'grau': 'I III IV V VII'.split(),
+        'skip_grau': [1, 5],
     },
 }
-
-DOZE_NOTAS = len(NOTAS)
 
 
 def escala(tonica: str, tonalidade: str) -> dict[str, list[str]]:
@@ -40,12 +44,19 @@ def escala(tonica: str, tonalidade: str) -> dict[str, list[str]]:
         >>> escala('C', 'pentatonica menor')
         {'notas': ['C', 'D#', 'F', 'G', 'A#'], 'graus': ['I', 'III', 'IV', 'V', 'VII']}
     """
-    intervalo_escala = ESCALAS[tonalidade]['intervalo']
+    grau = 0
+    graus = list()
     notas = list()
-    tonica_posicao = NOTAS.index(tonica.upper())
 
-    for intervalo in intervalo_escala:
-        posicao_nota = (intervalo + tonica_posicao) % DOZE_NOTAS
-        notas.append(NOTAS[posicao_nota])
+    for intervalo in ESCALAS[tonalidade]['intervalo']:
+        i = (intervalo + NOTAS.index(tonica.upper())) % len(NOTAS)
+        notas.append(NOTAS[i])
 
-    return {'notas': notas, 'graus': ESCALAS[tonalidade]['grau']}
+        if grau in ESCALAS[tonalidade]['skip_grau']:
+            graus.append(GRAUS[grau + 1])
+            grau += 2
+        else:
+            graus.append(GRAUS[grau])
+            grau += 1
+
+    return {'notas': notas, 'graus': graus}
